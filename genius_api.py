@@ -1,6 +1,7 @@
 import requests
+import os
 
-def get_song_info_from_lyrics(lyrics, genius_api_token):
+def get_song_info_from_lyrics(lyrics):
     """
     Fetch song information from Genius API using lyrics.
 
@@ -13,7 +14,7 @@ def get_song_info_from_lyrics(lyrics, genius_api_token):
     """
     base_url = "https://api.genius.com/search"
     headers = {
-        "Authorization": f"Bearer {genius_api_token}"
+        "Authorization": f"Bearer {os.getenv("GENIUS_API_TOKEN")}"
     }
     
     params = {

@@ -3,6 +3,9 @@ from gradio.themes import Soft
 import os
 from dotenv import load_dotenv
 from transcript import transcribe_audio  # Import the transcription function
+from genius_api import get_song_info_from_lyrics
+from metadata import info
+import json
 
 # Load environment variables from .env file
 load_dotenv()
@@ -10,14 +13,20 @@ load_dotenv()
 def analyze_song(mp3_file):
     # Call the transcription function and get the transcription
     transcription = transcribe_audio(mp3_file)  # Pass the mp3 filename to transcript.py
-
+    print(transcription)
+    genius_response = get_song_info_from_lyrics(transcription)
+    print(genius_response)
+    print(genius_response["title"])
+    print(genius_response["artist"])
+    song_data = json.loads(info(genius_response["title"], genius_response["artist"]))
+    print(song_data)
     # Placeholder for song analysis logic
-    title = "Sample Title"
-    artist = "Sample Artist"
-    genre = "Sample Genre"
-    instrumentation = "Sample Instrumentation"
+    title = genius_response["title"]
+    artist = genius_response["artist"]
+    genre = song_data["genre"]
+    instrumentation = str(song_data["instrumentation"])[1:-2].replace('\'', '')
     lyrics = transcription  # Use the transcription as lyrics
-    tempo_key = "Sample Tempo/Key"
+    tempo_key = song_data["tempo"] + ", " + song_data["key"]
     
     return title, artist, genre, instrumentation, lyrics, tempo_key, mp3_file  # Return the mp3 file for replay
 
