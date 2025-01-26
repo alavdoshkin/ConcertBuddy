@@ -39,8 +39,13 @@ def analyze_song(mp3_file):
     instrumentation = "Sample Instrumentation"
     lyrics = transcription  # Use the transcription as lyrics
     tempo_key = "Sample Tempo/Key"
+    history = "History"
     
+<<<<<<< HEAD
     return title, artist, genre, instrumentation, lyrics, tempo_key, mp3_file, image_url  # Return the mp3 file for replay
+=======
+    return title, artist, genre, instrumentation, lyrics, tempo_key, mp3_file, history  # Return the mp3 file for replay
+>>>>>>> 33c466c (History)
 
 # Custom CSS to set a fun musical theme image as background
 css = """
@@ -62,6 +67,7 @@ demo = gr.Interface(
         gr.Textbox(label="Instrumentation"),
         gr.Textbox(label="Lyrics"),
         gr.Textbox(label="Tempo/Key"),
+        gr.Textbox(label="History"),
         gr.Audio(label="Replay Recorded Audio")  # Add an output for replaying the recorded audio
         gr.Image(label="Cover")  # Gives the Cover image
     ],
