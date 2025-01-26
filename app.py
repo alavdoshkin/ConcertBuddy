@@ -12,7 +12,7 @@ from groq import Groq
 # load_dotenv()
 
 client = Groq(
-    api_key=os.getenv("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"),
+    api_key="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",
 )
 
 def song_history(message):
