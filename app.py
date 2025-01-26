@@ -6,9 +6,14 @@ from transcript import transcribe_audio  # Import the transcription function
 import numpy as np
 import requests
 from scipy.io.wavfile import write
+from groq import Groq
 
 # Load environment variables from .env file
 # load_dotenv()
+
+client = Groq(
+    api_key=os.getenv("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"),
+)
 
 def song_history(message):
     question = "Tell me the history or a fun fact of the song (in a single line!): " + message
