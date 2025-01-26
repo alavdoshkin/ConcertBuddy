@@ -3,12 +3,13 @@ from gradio.themes import Soft
 import os
 from dotenv import load_dotenv
 from transcript import transcribe_audio  # Import the transcription function
-
+from genius_api import get_song_info_from_lyrics
+from metadata import greet
 # Load environment variables from .env file
 load_dotenv()
 
 def analyze_song(mp3_file):
-    # Call the transcription function and get the transcription
+    # Call the transcription funçction and get the transcription
     transcription = transcribe_audio(mp3_file)  # Pass the mp3 filename to transcript.py
 
     # Placeholder for song analysis logic
@@ -24,7 +25,7 @@ def analyze_song(mp3_file):
 # Custom CSS to set a fun musical theme image as background
 css = """
 body {
-    background-image: url('https://example.com/path/to/your/musical-theme-image.jpg'); /* Replace with your image URL */
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210918/pngtree-note-music-logo-watercolor-background-image_903000.png'); /* Replace with your image URL */
     background-size: cover; /* Cover the entire background */
     background-repeat: no-repeat; /* Prevent repeating the image */
     background-position: center; /* Center the image */

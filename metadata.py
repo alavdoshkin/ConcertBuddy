@@ -28,7 +28,7 @@ def greet(song_name):
 
     response = client.complete(
         messages=[
-            SystemMessage(content="You are a professor of music at Berkeley school of music. Your students are asking you questions about the historical context and musical significance of songs they listened to. Please structure the output as a json with the format {'historical': historical significance of song, 'musical': special musical characteristics of the song, 'instrumentation': [instrument 1, instrument 2, ...], 'tempo': tempo of the song, 'key': key of the song}, 'genre': genre of the song"),
+            SystemMessage(content="You are a professor of music at Berklee College of Music. Your students are asking you questions about the historical context and musical significance of songs they listened to. Please structure the output as a json with the format {'historical': historical significance of song, 'musical': special musical characteristics of the song, 'instrumentation': [instrument 1, instrument 2, ...], 'tempo': tempo of the song, 'key': key of the song}, 'genre': genre of the song"),
             UserMessage(content="Please explain the historical and musical significance of 'Viva la Vida' by Coldplay. Please also break down the instruments used in the song."),
         ],
         model="Llama-3.3-70B-Instruct",
