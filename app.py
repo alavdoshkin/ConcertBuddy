@@ -44,7 +44,7 @@ demo = gr.Interface(
         gr.Audio(label="Replay Recorded Audio")  # Add an output for replaying the recorded audio
     ],
     theme=Soft(),  # Apply the Soft theme
-    css=css  # Apply custom CSS for background image
+    title="Concert Buddy 😄🎵🪩"  # Apply custom CSS for background image
 )
 
 demo.launch()
