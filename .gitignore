@@ -43,3 +43,6 @@ next-env.d.ts
 # audio files
 *.mp3
 *.wav
+
+# env files
+.env
