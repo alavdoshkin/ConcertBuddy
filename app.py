@@ -1,4 +1,10 @@
 import gradio as gr
+from gradio.themes import Soft
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 def analyze_song(mp3_file):
     # Placeholder for song analysis logic
@@ -50,7 +56,7 @@ demo = gr.Interface(
         gr.Textbox(label="Lyrics"),
         gr.Textbox(label="Tempo/Key"),
     ],
-    css=css  # Apply custom CSS
+    theme=Soft()  # Apply custom CSS
 )
 
 demo.launch()

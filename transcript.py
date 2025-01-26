@@ -13,7 +13,7 @@ client = Groq(
 )
 
 # Specify the path to the audio file
-filename = "music.mp3"  
+filename = "/Users/sydneydu/Projects/ConcertBuddy/blankspace.mp3"  
  
 # Open the audio file
 with open(filename, "rb") as file:
