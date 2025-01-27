@@ -1,19 +1,18 @@
 import requests
+import os
 
-def get_song_info_from_lyrics(lyrics, genius_api_token):
+def get_song_info_from_lyrics(lyrics):
     """
     Fetch song information from Genius API using lyrics.
-
     Args:
         lyrics (str): A snippet of the song lyrics.
         genius_api_token (str): Your Genius API token.
-
     Returns:
         dict: Information about the song (e.g., title, artist, URL) or None if not found.
     """
     base_url = "https://api.genius.com/search"
     headers = {
-        "Authorization": f"Bearer {genius_api_token}"
+        "Authorization": f"Bearer {os.environ['GENIUS_API_TOKEN']}"
     }
     
     params = {
@@ -21,9 +20,8 @@ def get_song_info_from_lyrics(lyrics, genius_api_token):
     }
 
     try:
-        # Make the API call
         response = requests.get(base_url, headers=headers, params=params)
-        response.raise_for_status()  # Raise an error for HTTP issues
+        response.raise_for_status()
         
         data = response.json()
 
@@ -44,10 +42,3 @@ def get_song_info_from_lyrics(lyrics, genius_api_token):
     except requests.exceptions.RequestException as e:
         print(f"An error occurred while making the API call: {e}")
         return None
-
-# Example usage
-# Replace "your_genius_api_token" with your actual Genius API token.
-# lyrics_snippet = "And I'm here to remind you of the mess you left when you went away"
-# api_token = "stPiAOUb80jj_AngLAAioCwSqcUkuVLqMs3cDNdpG2QF1L9UAygAkevXWFcMurwZ"
-# song_info = get_song_info_from_lyrics(lyrics_snippet, api_token)
-# print(song_info)
